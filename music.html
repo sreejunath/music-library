@@ -1,0 +1,116 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My music app</title>
+    <link rel="stylesheet" href="music.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,300;1,900&family=Vina+Sans&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <ul>
+                    <a href="">
+                        <li>playlists</li>
+                    </a>
+                    <a href="">
+                        <li>songs</li>
+                    </a>
+                    <a href="">
+                        <li>login</li>
+                    </a>
+                </ul>
+                <div class="sree">
+                    <h3>Sree musics</h3>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="first">
+        <div class="container">
+          <div class="hd">
+            <span>Playlist</span>
+            <span style="color: yellow;">: favorites❤</span>
+          </div>
+          <span class="align">
+            <div class="left">
+              <div class="lis">
+                <audio controls src="DIS.mp3" id="audio1"></audio>
+                <h6>drunk in shappu</h6>
+                <audio controls src="hukum.mp3" id="audio2"></audio>
+                <h6>jailer hukum</h6>
+                <audio controls src="kavala.mp3" id="audio3"></audio>
+                <h6>jailer kaavaala</h6>
+                <audio controls src="jailertheme.mp3" id="audio4"></audio>
+                <h6>jailer announcement theme</h6>
+                <audio controls src="moongil.mp3" id="audio5"></audio>
+                <h6>moongil thottam</h6>
+              </div>
+            </div>
+            <div class="right">
+              <div class="lis">
+                <audio controls src="way.mp3" id="audio6"></audio>
+                <h6>way down we go</h6>
+                <audio controls src="kok.mp3" id="audio7"></audio>
+                <h6>kalapakkara KOK</h6>
+                <audio controls src="leo.mp3" id="audio8"></audio>
+                <h6>naan ready dha</h6>
+                <audio controls src="nights.mp3" id="audio9"></audio>
+                <h6>too many nights</h6>
+                <audio controls src="dzanum.mp3" id="audio10"></audio>
+                <h6>Dzanum</h6>
+              </div>
+            </div>
+          </span>
+        </div>
+      </section>
+      <footer>
+        <p>
+        songs are copyrighted by responsible authorities <br>
+       webpage designed by sreejunath</p>
+      </footer>
+    
+      <script>
+        var currentAudio = null;
+    
+        function playAudio(audioId) {
+          var audioElement = document.getElementById(audioId);
+    
+          if (currentAudio) {
+            currentAudio.pause();
+          }
+    
+          if (audioElement.paused) {
+            audioElement.play();
+            currentAudio = audioElement;
+          } else {
+            audioElement.pause();
+            currentAudio = null;
+          }
+        }
+        
+        document.querySelectorAll('audio').forEach(function(audio) {
+          audio.addEventListener('play', function() {
+            if (currentAudio && currentAudio !== audio) {
+              currentAudio.pause();
+            }
+            currentAudio = audio;
+          });
+    
+          audio.addEventListener('pause', function() {
+            currentAudio = null;
+          });
+        });
+      </script>
+    
+
+</body>
+
+</html>
